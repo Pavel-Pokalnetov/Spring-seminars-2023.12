@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    /** Перенаправление на "/html"
+    /** Перенаправление c "/" на "/html"
      * @return
      */
     @GetMapping("/")
@@ -28,6 +28,10 @@ public class UserController {
         return "redirect:/home.html";
     }
 
+    /** Страница вывода списка пользователей (GET)
+     * @param model
+     * @return
+     */
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
@@ -36,25 +40,42 @@ public class UserController {
         //return "home.html";
     }
 
+    /** Форма ввода данных нового пользователя (GET)
+     * @param user
+     * @return
+     */
     @GetMapping("/user-create")
     public String createUserForm(User user) {
         return "user-create";
     }
 
+    /** Обработчик POST-запроса создания нового пользователя
+     * @param user
+     * @return
+     */
     @PostMapping("/user-create")
     public String createUser(User user) {
         userService.saveUser(user);
         return "redirect:/users";
     }
 
+    /** Обработчик GET-запроса на удаление пользователя по id
+     * @param id
+     * @return
+     */
     @GetMapping("/user-delete/{id}")
     public String deleteUser(@PathVariable int id) {
         userService.deleteUserById(id);
         return "redirect:/users";
     }
 
+    /** Форма ввода данных для редактирования пользователя по id (GET)
+     * @param model
+     * @param id
+     * @return
+     */
     @GetMapping("/user-update/{id}")
-    public String editUser(Model model, @PathVariable int id) {
+    public String editUserForm(Model model, @PathVariable int id) {
         User user = userService.getUserByID(id);
         if (user == null) return "redirect:/users";
         System.out.println(user);
@@ -62,6 +83,10 @@ public class UserController {
         return "user-update";
     }
 
+    /** Обработчик POST запроса на изменение пользователя по id
+     * @param user
+     * @return
+     */
     @PostMapping("/user-update/{id}")
     public String updateUser(User user) {
 
