@@ -33,35 +33,56 @@ public class UserRepository {
     public User save(User user) {
         String sql = "INSERT INTO userTable (firstName,lastName) VALUES (?, ?)";
         jdbc.update(sql, user.getFirstName(), user.getLastName());
-        return  user;
+        return user;
     }
 
-    public boolean deleteById(int id) {
+    public void deleteById(int id) {
         String sql = "DELETE FROM userTable WHERE id=?";
         jdbc.update(sql, id);
-        return false;
     }
 
+    /** Получить user из базы по id
+     * @param id
+     * @return
+     */
     public User getById(int id) {
-        String sql = "SELECT id,firstName,lastName FROM userTable WHERE id = ?";
+        if (!isExistUserById(id)) return null;//если нет записи с таким id - то отдаем null
 
-        User user = jdbc.queryForObject(sql,
+        String sql = "SELECT id,firstName,lastName FROM userTable WHERE id = ?";
+        return jdbc.queryForObject(sql,
                 (resultSet, rowNum) -> {
                     User newUser = new User();
                     newUser.setId(Integer.parseInt(resultSet.getString("id")));
                     newUser.setFirstName(resultSet.getString("firstName"));
                     newUser.setLastName(resultSet.getString("lastName"));
                     return newUser;
-                },id);
-        System.out.println("in getByID: user="+user);
-        return user;
+                },
+                id);
     }
 
+    /** Обновить пользователя user, ключ - id
+     * @param user
+     */
     public void updateUser(User user) {
-        String sql = "update userTable set firstNane = ?, lastName = ? where id = ?";
-        jdbc.update(sql,
-                user.getFirstName(),
-                user.getLastName(),
-                user.getId());
+        if (isExistUserById(user.getId())) { //если есть user с таким же id,  то обновляем
+            String sql = "update userTable set firstName = ?, lastName = ? where id = ?";
+            jdbc.update(sql,
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getId());
+        }
+    }
+
+
+    /**
+     * Проверка существования записи
+     *
+     * @param id
+     * @return true если есть запись с указанным id
+     */
+    private boolean isExistUserById(int id) {
+        String sql = "Select count(*) from userTable where id = ?";
+        int countRow = jdbc.queryForObject(sql, Integer.class, id);
+        return countRow > 0;
     }
 }
