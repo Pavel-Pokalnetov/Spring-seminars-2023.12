@@ -31,11 +31,37 @@ public class UserRepository {
     }
 
     public User save(User user) {
-        String sql = "INSERT INTO userTable VALUES (NULL, ?, ?)";
+        String sql = "INSERT INTO userTable (firstName,lastName) VALUES (?, ?)";
         jdbc.update(sql, user.getFirstName(), user.getLastName());
         return  user;
     }
 
-    //public void deleteById(int id)
-    //"DELETE FROM userTable WHERE id=?"
+    public boolean deleteById(int id) {
+        String sql = "DELETE FROM userTable WHERE id=?";
+        jdbc.update(sql, id);
+        return false;
+    }
+
+    public User getById(int id) {
+        String sql = "SELECT id,firstName,lastName FROM userTable WHERE id = ?";
+
+        User user = jdbc.queryForObject(sql,
+                (resultSet, rowNum) -> {
+                    User newUser = new User();
+                    newUser.setId(Integer.parseInt(resultSet.getString("id")));
+                    newUser.setFirstName(resultSet.getString("firstName"));
+                    newUser.setLastName(resultSet.getString("lastName"));
+                    return newUser;
+                },id);
+        System.out.println("in getByID: user="+user);
+        return user;
+    }
+
+    public void updateUser(User user) {
+        String sql = "update userTable set firstNane = ?, lastName = ? where id = ?";
+        jdbc.update(sql,
+                user.getFirstName(),
+                user.getLastName(),
+                user.getId());
+    }
 }
