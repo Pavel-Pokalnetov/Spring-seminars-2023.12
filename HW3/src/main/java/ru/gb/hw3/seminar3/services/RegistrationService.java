@@ -12,8 +12,8 @@ public class RegistrationService {
     @Autowired
     UsersRepository usersRepository;
 
-    public void processRegistration(String name, int age, String email) {
+    public boolean processRegistration(String name, int age, String email) {
         User user = userService.createUser(name, age, email);
-        usersRepository.addUser(user);
+        return usersRepository.addUser(user);
     }
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="form-block">
+    <h3>Создание пользователя</h3><p>(отправка данных на сервер через JQuery:AJAX)</p>
+    <form action="/users/body" method="POST" id="user-create-form">
+        <input class="form-control" id="form-name" type="text" name="name" placeholder="Name" autofocus required>
+        <p id="error-name" class="errors"></p>
+        <input class="form-control" id="form-age" type="number" name="age" placeholder="Age" required>
+        <p id="error-age" class="errors"></p>
+        <input class="form-control" id="form-email" type="text" name="email" placeholder="Email" required>
+        <p id="error-email" class="errors"></p>
+    </form>
+    <button class="btn btn-primary" id="bt-submit">Отправить</button>
+    <div id="result"></div>
+</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+    $(function () {
+        $("#user-create-form").each(function () {
+            this.reset();
+        });
+        $("#bt-submit").on("click", function () {
+            $(".errors").html("");
+            $(".errors").css("display","none");
+            formData = $("#user-create-form").serialize();
+            userName = $("#form-name").val();
+            userAge = $("#form-age").val();
+            userEmail = $("#form-email").val();
+            formcheck = true;
+            if (userName==="") {
+                formcheck = false;
+                $("#error-name").html("Не заполнено Name");
+                $("#error-name").css("display","block");
+            }
+            if (userEmail === "") {
+                formcheck = false;
+                $("#error-email").html("Не заполнен Email");
+                $("#error-email").css("display","block");
+            }
+            if (userAge === "") {
+                formcheck = false;
+                $("#error-age").html("Не заполнено Age");
+                $("#error-age").css("display","block");
+            }
+            if (formcheck) {
+                $.ajax({
+                    url: '/users/body',
+                    method: 'post',
+                    dataType: 'json',
+                    data: formData,
+                    success: function (data) {
+                        console.log(data);
+                        result = `<p>Пользователь: {"name":"${userName}", "age":"${userAge}", "email":"${userEmail}"}`;
+                        if (data.result === 'success') {
+                            result += " успешно создан</p>";
+                        } else {
+                            result += " не создан</p>";
+                        }
+                        $("#result").append(result);
+                        $("#user-create-form").each(function () {
+                            this.reset();
+                        });
+                    },
+                    errors: function (data) {
+                        console.log(data);
+                        $("#result").append("<p>Ошибка при выполнении запроса. Подробности в консоли</p>");
+                    }
+                });
+            }
+
+        });
+    });
+</script>
+</body>
+</html>
