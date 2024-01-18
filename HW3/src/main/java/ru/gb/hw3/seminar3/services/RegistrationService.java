@@ -1,0 +1,22 @@
+package ru.gb.hw3.seminar3.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.gb.hw3.seminar3.domain.User;
+import ru.gb.hw3.seminar3.repository.UsersRepository;
+
+@Service
+public class RegistrationService {
+    @Autowired
+    UserService userService;
+    @Autowired
+    NotificationService notificationService;
+    @Autowired
+    UsersRepository usersRepository;
+
+    public void processRegistration(String name, int age, String email) {
+        User user = userService.createUser(name, age, email);
+        usersRepository.addUser(user);
+        notificationService.notifyUser(user);
+    }
+}
