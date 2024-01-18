@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class MainController {
 
+    /** Перенаправление с "/" на статическую страницу создания пользователей
+     * через ajax без перезагрузки страницы "/create-user.html"
+     * @return
+     */
     @GetMapping("/")
     public String getCreateUserForm(){
         System.out.println("visit to root server dir");

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="form-block">
-    <h3>Создание пользователя</h3><p>(отправка данных на сервер через JQuery:AJAX)</p>
+    <h3>Создание пользователя</h3><p>(отправка данных на сервер через JQuery:AJAX без перезагрузки страницы)</p>
     <form action="/users/body" method="POST" id="user-create-form">
         <input class="form-control" id="form-name" type="text" name="name" placeholder="Name" autofocus required>
         <p id="error-name" class="errors"></p>
@@ -26,12 +26,14 @@
 <script>
     $(function () {
         $("#user-create-form").each(function () {
-            this.reset();
+            this.reset(); //очистка элементов формы
         });
         $("#bt-submit").on("click", function () {
+            //очистка блоков ошибок заполнения
             $(".errors").html("");
             $(".errors").css("display","none");
-            formData = $("#user-create-form").serialize();
+
+            //валидация формы
             userName = $("#form-name").val();
             userAge = $("#form-age").val();
             userEmail = $("#form-email").val();
@@ -51,13 +53,21 @@
                 $("#error-age").html("Не заполнено Age");
                 $("#error-age").css("display","block");
             }
+            if((userAge>120) || (userAge<=0)){
+                formcheck = false;
+                $("#error-age").html("Не вернно заполнено Age");
+                $("#error-age").css("display","block");
+            }
             if (formcheck) {
+                formData = $("#user-create-form").serialize();//получаем данные формы
+                //подготовка и отправка AJAX запроса
                 $.ajax({
                     url: '/users/body',
                     method: 'post',
                     dataType: 'json',
                     data: formData,
                     success: function (data) {
+                        //обработка результата
                         console.log(data);
                         result = `<p>Пользователь: {"name":"${userName}", "age":"${userAge}", "email":"${userEmail}"}`;
                         if (data.result === 'success') {
@@ -70,7 +80,8 @@
                             this.reset();
                         });
                     },
-                    errors: function (data) {
+                    error: function (data) {
+                        //обработка ошибок
                         console.log(data);
                         $("#result").append("<p>Ошибка при выполнении запроса. Подробности в консоли</p>");
                     }

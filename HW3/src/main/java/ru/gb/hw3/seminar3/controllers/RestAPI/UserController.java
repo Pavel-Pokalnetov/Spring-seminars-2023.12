@@ -19,6 +19,9 @@ public class UserController {
     @Autowired
     RegistrationService registrationService;
 
+    /** Отдача списка пользователей
+     * @return
+     */
     @GetMapping("/users")
     public List<User> users() {
         try {
@@ -28,6 +31,17 @@ public class UserController {
         }
     }
 
+    /** Создание пользователя
+     * обработчик POST запроса
+     * возвращает json:
+     *  {"result":"seccess"} если создание пользователя успешно
+     *  {"result":"failed"} если пользователь не создан по каким-либо причинам
+     *
+     * @param name
+     * @param age
+     * @param email
+     * @return
+     */
     @PostMapping("/users/body")
     public String createUser(@RequestParam String name, @RequestParam int age, @RequestParam String email){
         if (registrationService.processRegistration(name,age,email)) return "{\"result\":\"success\"}";
