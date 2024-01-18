@@ -10,13 +10,10 @@ public class RegistrationService {
     @Autowired
     UserService userService;
     @Autowired
-    NotificationService notificationService;
-    @Autowired
     UsersRepository usersRepository;
 
     public void processRegistration(String name, int age, String email) {
         User user = userService.createUser(name, age, email);
         usersRepository.addUser(user);
-        notificationService.notifyUser(user);
     }
 }

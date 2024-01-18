@@ -8,17 +8,13 @@ import ru.gb.hw3.seminar3.domain.User;
 import java.util.List;
 
 
+@Setter
+@Getter
 @Component
 public class UsersRepository {
-
     private List<User> users;
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public UsersRepository() {
     }
 
     public void addUser(User user){

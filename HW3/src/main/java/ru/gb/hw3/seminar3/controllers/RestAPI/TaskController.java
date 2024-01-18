@@ -1,8 +1,10 @@
 package ru.gb.hw3.seminar3.controllers.RestAPI;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gb.hw3.seminar3.domain.User;
 import ru.gb.hw3.seminar3.services.DataProcessingService;
@@ -28,5 +30,10 @@ public class TaskController {
     @GetMapping("/task/sort")
     public List<User> sortUsersByAge(){
         return service.sortUsersByAge(service.getUsersRepository().getUsers());
+    }
+
+    @GetMapping("/task/filter/{age}")
+    public List<User> filterUsersByAge(@RequestParam int age){
+        return service.filterUsersByAge(service.getUsersRepository().getUsers(),age);
     }
 }
