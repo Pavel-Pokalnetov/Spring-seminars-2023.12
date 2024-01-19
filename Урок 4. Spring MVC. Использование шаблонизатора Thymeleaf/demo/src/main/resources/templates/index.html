@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+<div th:each="product:${productList}" class="product-block">
+    <h3 th:text="${product.getTitle}"></h3>
+    <p>Артикул: <span th:text="${product.getArticle()}"></span></p>
+    <img  th:src="${product.getImageURL()}" src="" alt="фото товара" srcset="">
+    <p>Цена: <span th:text="${product.getCost()}"></span> у.е.<p>
+    <p>Описание: <span th:text="${product.getDescription()}"></span><p>
+</div>
+
+</body>
+</html>
