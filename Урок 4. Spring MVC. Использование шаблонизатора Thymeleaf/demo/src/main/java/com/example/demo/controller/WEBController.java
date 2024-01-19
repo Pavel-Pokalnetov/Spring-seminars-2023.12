@@ -12,7 +12,7 @@ public class WEBController {
     ProductService productService;
     @GetMapping("/")
     public String indexHtml(Model model){
-            model.addAttribute(productService.getProducts());
+            model.addAttribute(productService.getAllProducts());
         return "index";
     }
 }
