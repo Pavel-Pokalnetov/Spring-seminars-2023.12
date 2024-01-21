@@ -1,19 +1,48 @@
 package com.example.demo.services;
 
+import com.example.demo.DAO.IProductRepository;
 import com.example.demo.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class ProductService {
     @Autowired
-    ProductsRepository productsRepository;
+    IProductRepository productsRepository;
 
+    /** Получить все записи товаров
+     * @return список товаров
+     */
     public List<Product> getAllProducts() {
-        return productsRepository.getProducts();
+        return productsRepository.getAllProducts();
+    }
+
+    /** Получить товар по его артикулу
+     * @param article артикул товара
+     * @return товар
+     */
+    public Product getProductByArticle(int article){
+        return productsRepository.getProductByArticle(article);
+    }
+
+    /** Получить список товаров по совпан=дению строки поиска
+     * @param pattern  строка поиска
+     * @return список товаров
+     */
+    public List<Product> findProduct(String pattern){
+        return productsRepository.fingProduct(pattern);
+    }
+
+    /** Записать товар в базу
+     * @param product товар
+     */
+    public void saveProduct(Product product){
+        productsRepository.saveProduct(product);
+    }
+
+    public void delProductByArticle(int article) {
+        productsRepository.delProductByArticle(article);
     }
 }
