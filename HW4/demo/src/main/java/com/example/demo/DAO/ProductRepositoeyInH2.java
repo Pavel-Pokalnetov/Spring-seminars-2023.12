@@ -14,7 +14,8 @@ public class ProductRepositoeyInH2 implements IProductRepository {
 
     @Override
     public List<Product> getAllProducts() {
-        String sql = "SELECT * From product;";
+        String sql = "SELECT * From product";
+
         //todo сделать получение из базы
         return null;
     }
