@@ -3,3 +3,8 @@ CREATE TABLE IF NOT EXISTS userTable (
     firstName varchar(50) NOT NULL,
     lastName varchar(50) NOT NULL
 );
+INSERT INTO userTable (firstName,lastName)
+    VALUES ('Иван','Иванов'),
+           ('Семен','Семёнов'),
+           ('Михаил','Михайлов'),
+           ('Jhon','Connor');
