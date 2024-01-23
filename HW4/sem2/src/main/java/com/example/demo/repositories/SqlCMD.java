@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "sqlcmd")
 @Setter
 @Getter
-@ToString
 public class SqlCMD {
     private String findAll;
     private String save;
