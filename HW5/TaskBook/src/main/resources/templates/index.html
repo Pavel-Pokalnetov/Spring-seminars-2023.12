@@ -18,18 +18,18 @@
                 <a href="/addtask" class="btn btn-primary">Добавить</a>
             </div>
         </nav>
-        <div class="col-12 col-md-9 scrollable-panel">
+        <div class="col-12 col-md-12 scrollable-panel">
             <div class="row">
                 <div th:each="task : ${tasks}" class="col-sm-4">
                     <div class="card mb-3 shadow-lg border border-primary">
-                        <div class="card-header">Task</div>
+                        <div class="card-header"><span th:text="${task.getName()}"></div>
                         <div class="card-body">
-                            <p class="card-text">ID: <span th:text="${task.id}"></span></p>
-                            <p class="card-text">Name: <span th:text="${task.name}"></span></p>
-                            <p class="card-text">Description: <span th:text="${task.description}"></span></p>
-                            <p class="card-text">Status: <span th:text="${task.status}"></span></p>
-                            <p class="card-text">Created Date: <span th:text="${#temporals.format(task.getCreatedDate(), 'yyyy-MM-dd HH:mm:ss')}"></span></p>
-                            <a href="" th:href="@{'/deltask/'+${task.getId()}}">Del</a>
+                            <!-- p class="card-text">ID: <span th:text="${task.id}"></span></p -->
+                            <p class="card-text"><span th:text="${task.getDescription()}"></span></p>
+                            <p class="card-text">Статус: <span th:text="${task.getStatusWeb()}"></span></p>
+                            <p class="card-text">Дата: <span th:text="${#temporals.format(task.getCreatedDate(), 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+                            <a href="" th:href="@{'/deltask/'+${task.getId()}}">Закрыть</a>
+                            <a href="" th:href="@{'/starttask/'+${task.getId()}}">Сметить статус</a>
                         </div>
                     </div>
                 </div>

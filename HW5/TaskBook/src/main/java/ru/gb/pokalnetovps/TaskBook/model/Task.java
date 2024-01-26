@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+import static ru.gb.pokalnetovps.TaskBook.model.TaskStatus.*;
+
 @Data
 @Entity
 public class Task {
@@ -20,4 +22,11 @@ public class Task {
     @Column(name = "CREATEDDATE")
     private LocalDateTime createdDate;
 
+    public String getStatusWeb() {
+        return switch (status) {
+            case NOT_STARTED -> "Не начат";
+            case COMPLETED -> "Выполнено";
+            case IN_PROGRESS -> "Выполняется";
+        };
+    }
 }

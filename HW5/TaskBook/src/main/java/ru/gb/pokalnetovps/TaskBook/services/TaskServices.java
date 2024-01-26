@@ -18,7 +18,6 @@ public class TaskServices {
     TaskRepository taskRep;
 
     public List<Task> getAllTask(){
-        System.out.println(taskRep.findAll());
         return StreamSupport.stream(taskRep.findAll().spliterator(),false).collect(Collectors.toList());
     }
 

@@ -12,9 +12,7 @@ public class ViewTask {
     TaskServices ts;
     @GetMapping("/")
     public String viewTaskGet(Model model){
-        System.out.println(ts.getAllTask());
         model.addAttribute("tasks",ts.getAllTask());
-
         return "index";
     }
 }
