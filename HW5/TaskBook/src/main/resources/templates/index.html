@@ -12,30 +12,53 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <a href="/addtask" class="btn btn-primary">Добавить</a>
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="input-group mb-6">
+            <a href="/addtask" class="btn btn-outline-primary btn-sm">Добавить задачу</a>
+            <div class="d-flex justify-content-end">
+                <select id="filter-select" class="d-inline" onchange="setFilter()">
+                    <option id="filter-all" value="all">Все</option>
+                    <option id="filter-nostart" value="nostart">Не выполняются</option>
+                    <option id="filter-inwork" value="inwork">Выполняются</option>
+                    <option id="filter-ready" value="ready">Выполненные</option>
+                </select>
             </div>
-        </nav>
-        <div class="col-12 col-md-12 scrollable-panel">
-            <div class="row">
-                <div th:each="task : ${tasks}" class="col-sm-4">
-                    <div class="card mb-3 shadow-lg border border-primary">
-                        <div class="card-header"><span th:text="${task.getName()}"></div>
-                        <div class="card-body">
-                            <!-- p class="card-text">ID: <span th:text="${task.id}"></span></p -->
-                            <p class="card-text"><span th:text="${task.getDescription()}"></span></p>
-                            <p class="card-text">Статус: <span th:text="${task.getStatusWeb()}"></span></p>
-                            <p class="card-text">Дата: <span th:text="${#temporals.format(task.getCreatedDate(), 'yyyy-MM-dd HH:mm:ss')}"></span></p>
-                            <a href="" th:href="@{'/deltask/'+${task.getId()}}">Закрыть</a>
-                            <a href="" th:href="@{'/starttask/'+${task.getId()}}">Сметить статус</a>
-                        </div>
+            <script th:inline="javascript">
+                window.onload = function () {
+                    var selector = "filter-" + [[${filter}]];
+                    var index =document.getElementById(selector).index;
+                    document.getElementById("filter-select").selectedIndex = index;
+                    ;
+                };
+
+                function setFilter() {
+                    var filter = document.getElementById('filter-select').value;
+                    window.location.href = '/' + '?filter=' + filter;
+                };
+            </script>
+        </div>
+    </nav>
+    <div class="col-12 col-md-12 scrollable-panel">
+        <div class="row">
+            <div th:each="task : ${tasks}" class="col-sm-4">
+                <div class="card mb-3 shadow-lg border border-primary">
+                    <div class="card-header"><span th:text="${task.getName()}"></div>
+                    <div class="card-body">
+                        <!-- p class="card-text">ID: <span th:text="${task.id}"></span></p -->
+                        <p class="card-text"><span th:text="${task.getDescription()}"></span></p>
+                        <p class="card-text">Статус: <span th:text="${task.getStatusWeb()}"></span></p>
+                        <p class="card-text">Дата: <span
+                                th:text="${#temporals.format(task.getCreatedDate(), 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+                        <a class="btn btn btn-outline-danger btn-sm" href="" th:href="@{'/deltask/'+${task.getId()}}">Закрыть</a>
+                        <a class="btn btn btn-outline-success btn-sm" href="" th:href="@{'/upd/'+${task.getId()}}">Сменить
+                            статус</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>

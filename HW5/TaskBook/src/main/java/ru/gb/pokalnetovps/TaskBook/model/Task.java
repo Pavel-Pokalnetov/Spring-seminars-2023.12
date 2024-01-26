@@ -27,6 +27,7 @@ public class Task {
             case NOT_STARTED -> "Не начат";
             case COMPLETED -> "Выполнено";
             case IN_PROGRESS -> "Выполняется";
+            default -> "no status";
         };
     }
 }

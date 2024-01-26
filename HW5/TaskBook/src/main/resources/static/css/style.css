@@ -10,6 +10,10 @@
 }
 
 .card {
-    padding: 10px;
-    background-color: #fff;
+    padding: 15px;
+    background-color: #ffecb5;
+}
+
+.card-header{
+    background-color: #ffecb5;
 }
