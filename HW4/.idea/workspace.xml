@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc875e4e-048e-4f29-88b6-c4c821d1d903" name="Changes" comment="" />
+    <list default="true" id="bc875e4e-048e-4f29-88b6-c4c821d1d903" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../HW5/TaskBook/src/main/java/ru/gb/pokalnetovps/TaskBook/model/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/TaskBook/src/main/java/ru/gb/pokalnetovps/TaskBook/model/TaskStatus.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +19,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2bIMqj6nWIrrHsqkgiTdcnRIXjZ" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -35,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.DemoApplication.executor": "Run",
-    "git-widget-placeholder": "seminar-thymeleaf",
+    "git-widget-placeholder": "hw5",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,6 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705898333158</updated>
       <workItem from="1705898334407" duration="6080000" />
+      <workItem from="1706248984741" duration="597000" />
     </task>
     <servers />
   </component>
