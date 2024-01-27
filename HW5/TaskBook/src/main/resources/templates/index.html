@@ -15,9 +15,10 @@
 <div class="container">
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="input-group mb-6">
-            <a href="/addtask" class="btn btn-outline-primary btn-sm">Добавить задачу</a>
+            <a href="/addtask" class="btn btn-outline-primary btn-sm"><span title="Добавить новую задачу">Добавить задачу</span></a>
             <div class="d-flex justify-content-end">
-                <select id="filter-select" class="d-inline" onchange="setFilter()">
+                <select id="filter-select" class="d-inline" onchange="setFilter()"
+                        title="Фильтр отображения списка задач">
                     <option id="filter-all" value="all">Все</option>
                     <option id="filter-nostart" value="nostart">Не выполняются</option>
                     <option id="filter-inwork" value="inwork">Выполняются</option>
@@ -27,7 +28,7 @@
             <script th:inline="javascript">
                 window.onload = function () {
                     var selector = "filter-" + [[${filter}]];
-                    var index =document.getElementById(selector).index;
+                    var index = document.getElementById(selector).index;
                     document.getElementById("filter-select").selectedIndex = index;
                     ;
                 };

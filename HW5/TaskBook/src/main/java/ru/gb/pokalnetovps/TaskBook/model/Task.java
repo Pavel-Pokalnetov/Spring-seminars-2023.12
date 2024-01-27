@@ -7,6 +7,14 @@ import java.time.LocalDateTime;
 
 import static ru.gb.pokalnetovps.TaskBook.model.TaskStatus.*;
 
+/**
+ * Сущность "Задача"
+ * @id - идентификатор
+ * @name - наименование (заголовок)
+ * @description - описание
+ * @status - статус
+ * @createdDate - дата создания
+ */
 @Data
 @Entity
 public class Task {
@@ -23,11 +31,6 @@ public class Task {
     private LocalDateTime createdDate;
 
     public String getStatusWeb() {
-        return switch (status) {
-            case NOT_STARTED -> "Не начат";
-            case COMPLETED -> "Выполнено";
-            case IN_PROGRESS -> "Выполняется";
-            default -> "no status";
-        };
+        return status.toString();
     }
 }
