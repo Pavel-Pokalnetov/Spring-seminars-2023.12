@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.gb.pokalnetovps.TaskBook"},{"l":"ru.gb.pokalnetovps.TaskBook.controllers"},{"l":"ru.gb.pokalnetovps.TaskBook.model"},{"l":"ru.gb.pokalnetovps.TaskBook.repository"},{"l":"ru.gb.pokalnetovps.TaskBook.services"}];updateSearchResults();
