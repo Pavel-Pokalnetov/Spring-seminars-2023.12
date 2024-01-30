@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.pokalnetovps.PersonalNotes.model.Note;
 import ru.gb.pokalnetovps.PersonalNotes.services.NoteService;
@@ -37,7 +35,7 @@ public class NoteApiController {
      * @return - созданную заметку в JSON
      */
     @PostMapping("/")
-    public ResponseEntity<?> addNote(@RequestBody Note note) {
+    public ResponseEntity<?> createNote(@RequestBody Note note) {
         try{
             note.setDate(LocalDateTime.now());
             noteService.addNote(note);
