@@ -11,4 +11,4 @@ spring:
       mode: always
   h2:
     console:
-      enabled=true:
+      enabled: true

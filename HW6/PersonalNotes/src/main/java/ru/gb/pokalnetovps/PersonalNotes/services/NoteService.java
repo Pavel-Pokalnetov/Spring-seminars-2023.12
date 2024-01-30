@@ -14,7 +14,7 @@ public class NoteService {
     @Autowired
     private NoteRepository noteRepository;
 
-    public void addNote(Note note) {
+    public void addNote(Note note) throws RuntimeException {
         noteRepository.save(note);
     }
 
