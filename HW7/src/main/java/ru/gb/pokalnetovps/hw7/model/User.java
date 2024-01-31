@@ -2,7 +2,6 @@ package ru.gb.pokalnetovps.hw7.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
 
 
 @Data
