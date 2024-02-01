@@ -1,9 +1,11 @@
 package ru.gb.pokalnetovps.hw7.repository;
 
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.gb.pokalnetovps.hw7.model.User;
 
-public interface UsersRepository extends CrudRepository<User, Long> {
-    User findByName(String userName);
+import java.util.Optional;
+
+public interface UsersRepository extends JpaRepository<User, Long> {
+    Optional<User> findByName(String userName);
 }

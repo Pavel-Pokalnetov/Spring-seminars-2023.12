@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.gb.pokalnetovps.hw7.model.User;
 import ru.gb.pokalnetovps.hw7.repository.UsersRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -15,16 +16,13 @@ public class UserService {
     UsersRepository userRepository;
 
     public List<User> getUsers() {
-        return StreamSupport
-                .stream(userRepository
-                                .findAll()
-                                .spliterator(),
-                        false)
-                .collect(Collectors.toList());
-
+        List<User> userList = new ArrayList<>(userRepository
+                .findAll());
+        System.out.println(userList);
+        return userList;
     }
 
     public User getUserByName(String username) {
-        return userRepository.findByName(username);
+        return userRepository.findByName(username).orElse(null);
     }
 }
