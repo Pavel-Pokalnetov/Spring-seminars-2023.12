@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @GetMapping("/public-data")
+    @GetMapping("/public-data/**")
     public ResponseEntity<String> userProfile() {
         return new ResponseEntity<String>("Welcome to Public Profile", HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/private-data")
+    @GetMapping("/private-data/**")
     public ResponseEntity<String> adminProfile() {
         return new ResponseEntity<String>("Welcome to Public Profile", HttpStatus.ACCEPTED);
     }
