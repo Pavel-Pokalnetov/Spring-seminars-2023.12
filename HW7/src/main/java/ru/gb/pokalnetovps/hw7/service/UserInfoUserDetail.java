@@ -1,5 +1,6 @@
 package ru.gb.pokalnetovps.hw7.service;
 
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@ToString
 public class UserInfoUserDetail implements UserDetails {
 
     private String name;
@@ -22,6 +23,7 @@ public class UserInfoUserDetail implements UserDetails {
         authorities = Arrays.stream(user.getUserGroup().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
+        System.out.println(this);
     }
 
 

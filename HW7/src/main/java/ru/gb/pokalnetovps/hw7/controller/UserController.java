@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-
     @GetMapping("/public-data")
     public String userProfile() {
         return "Welcome to Public Profile";
