@@ -23,7 +23,6 @@ public class UserInfoUserDetail implements UserDetails {
         authorities = Arrays.stream(user.getUserGroup().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
-        System.out.println(this);
     }
 
 
