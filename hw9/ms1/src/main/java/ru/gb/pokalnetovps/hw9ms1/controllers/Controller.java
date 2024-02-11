@@ -8,7 +8,12 @@ import ru.gb.pokalnetovps.hw9ms1.model.User;
 import ru.gb.pokalnetovps.hw9ms1.service.UserService;
 
 import java.util.List;
-
+/* Контроллер работы с пользователями
+ * GET /users - получить все логины пользователей
+ * GET /users/{id} - получить пользователя с указанным id
+ * POST /users - добавить пользователя ( в запросе должен быть пердан JSON{name,login,password})
+ * DELETE /users/{id} - удалить пользователя с указанным id
+ */
 @RestController
 public class Controller {
     @Autowired

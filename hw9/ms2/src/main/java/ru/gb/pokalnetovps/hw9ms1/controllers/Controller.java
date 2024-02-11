@@ -7,7 +7,12 @@ import ru.gb.pokalnetovps.hw9ms1.model.Task;
 import ru.gb.pokalnetovps.hw9ms1.service.TaskService;
 
 import java.util.List;
-
+/* Контроллер работы с задачами
+ * GET /tasks - получить все задачи
+ * GET /tasks/{id} - получить задачу с указанным id
+ * POST /tasks - добавить задачу ( в запросе должен быть пердан JSON{title,text,userId})
+ * DELETE /tasks/{id} - удалить задачу с указанным id
+ */
 @RestController
 public class Controller {
     @Autowired
