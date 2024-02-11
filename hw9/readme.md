@@ -21,3 +21,20 @@
 
     https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw9/hw9/ms2
 
+Создан ApiGateway на адресе localhost:8080
+и зарегистрированы микросервисы https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw9/hw9/ApiGateway
+
+Работа микросервисов через шлюз ApiGateway
+
+Микросервис пользователей
+![](/screenshots/users.png )
+
+Микросервис задач
+![](/screenshots/tasks.png)
+
+И на последок поднят сервис с Eureka на localhost:8761
+https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw9/hw9/EurekaServer
+
+Web интерфейс работающей Eureka
+![](/screenshots/eureka.png)
+
