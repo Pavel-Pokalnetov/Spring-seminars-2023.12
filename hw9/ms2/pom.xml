@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.gb.pokalnetovps</groupId>
-	<artifactId>hw9ms1</artifactId>
+	<artifactId>hw9ms2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hw9ms1</name>
-	<description>HomeWork9-microservice-1</description>
+	<name>hw9ms2</name>
+	<description>HomeWork9-microservice-2</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
