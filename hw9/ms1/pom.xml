@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.gb.pokalnetovps</groupId>
-	<artifactId>hw9</artifactId>
+	<artifactId>ms1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hw9</name>
 	<description>HomeWork9-microservice-1</description>
