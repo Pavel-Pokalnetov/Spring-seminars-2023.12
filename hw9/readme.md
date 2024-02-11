@@ -26,15 +26,15 @@
 
 Работа микросервисов через шлюз ApiGateway
 
-Микросервис пользователей
+Микросервис пользователей  
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw9/hw9/screenshots/users.png?raw=true)
 
-Микросервис задач
+Микросервис задач  
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw9/hw9/screenshots/tasks.png?raw=true)
 
 И на последок поднят сервис с Eureka на localhost:8761
 https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw9/hw9/EurekaServer
 
-Web интерфейс работающей Eureka
+Web интерфейс работающей Eureka  
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw9/hw9/screenshots/eureka.png?raw=true)
 
