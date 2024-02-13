@@ -15,16 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class IntegrityUserServiceTest {
     @Autowired
     UserService us;
+
+    /**
+     * Тест создания пользователя, запись в базу, получение из базу
+     */
     @Test
-    public void integrityTest(){
+    public void integrityUserServiceTest(){
         User user = new User();
         user.setName("test-user");
         user.setLogin("test-login");
         user.setPassword("test-password");
         User createdUser = us.addUser(user);
-        Long id = createdUser.getId();
+        long id = createdUser.getId();
         User readUser = us.getUserById(id);
-        assertEquals(readUser.getId(),id);
+        assertEquals(readUser,createdUser);
         us.deleteUserById(id);
         readUser = us.getUserById(id);
         assertNull(readUser);
