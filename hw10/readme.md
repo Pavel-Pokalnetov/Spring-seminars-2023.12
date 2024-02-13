@@ -9,7 +9,7 @@ GET /users/{id}
 POST /users
 DELETE /users/{id}
 
-[https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw10](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw10/hw10)https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw10/hw10
+https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/tree/hw10/hw10
 
 Тестирование класса User  
 https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw10/hw10/src/test/java/ru/gb/pokalnetovps/hw10/model/UserTest.java  
