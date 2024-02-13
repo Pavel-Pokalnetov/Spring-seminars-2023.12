@@ -1,19 +1,18 @@
-package ru.gb.pokalnetovps.hw10;
+package ru.gb.pokalnetovps.hw10.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.gb.pokalnetovps.hw10.model.User;
-import ru.gb.pokalnetovps.hw10.service.UserService;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IntegrityAppServiceTest {
+public class IntegrityUserServiceTest {
     @Autowired
     UserService us;
     @Test
@@ -29,5 +28,5 @@ public class IntegrityAppServiceTest {
         us.deleteUserById(id);
         readUser = us.getUserById(id);
         assertNull(readUser);
-    };
+    }
 }
