@@ -79,11 +79,12 @@ targets - указывает на сокет нашего приложения
 ```
 как видим, эндпоинты работают  
 Переходим по адресу 127.0.0.1:9000 и проверяем, что прометеус начал собирать данные.
+![]()
 
 Добавим свою метрику, которая будет отражать число записей(пользователей) в базе данных.
 
 Прежде всего добавим зависимость:  
-```xml
+```XML
 <dependency>
     <groupId>io.micrometer</groupId>
     <artifactId>micrometer-core</artifactId>
@@ -91,7 +92,7 @@ targets - указывает на сокет нашего приложения
 ```
 
 Напишем класс обрабатывающий пользовательскуе метрики.
-```Java
+```JAVA
 package ru.gb.pokalnetovps.hw11.service;
 
 import io.micrometer.core.instrument.Gauge;
@@ -131,15 +132,17 @@ public class MetricService {
 
 Для обновления метрики в нужных меcтах кода вызываем метод
 
-```java
-
+```JAVA
 @Autowired
 MetricService metricService;
 ...
 metricService.updateUsersCounter(int newCountValue);
 ...
 ```
+в нашем случае код обновления метрики внедрен в методы addUsers и deleteUserById класса UserService
 
 ### Скриншоты
 
+Пользовательская метрика
+![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw11/hw11/image/2024-02-16_01-02-27.png?raw=true)
 
