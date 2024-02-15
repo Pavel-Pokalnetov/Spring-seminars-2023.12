@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import ru.gb.pokalnetovps.hw11.model.User;
 
 @Repository
-public interface IUserInterface extends CrudRepository<User, Long> {
+public interface IUserRepository extends CrudRepository<User, Long> {
 
     boolean existsByLogin(String login);
 }

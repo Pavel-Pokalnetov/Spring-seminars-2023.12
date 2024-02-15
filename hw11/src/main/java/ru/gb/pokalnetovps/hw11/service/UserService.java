@@ -3,7 +3,7 @@ package ru.gb.pokalnetovps.hw11.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.gb.pokalnetovps.hw11.model.User;
-import ru.gb.pokalnetovps.hw11.repository.IUserInterface;
+import ru.gb.pokalnetovps.hw11.repository.IUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,14 @@ import java.util.List;
 
 public class UserService {
     @Autowired
-    IUserInterface repo;
-
+    IUserRepository repo;
+    @Autowired
+    MetricService ms;
 
     public User addUser(User user) {
         if (repo.existsByLogin(user.getLogin())) return null;
         repo.save(user);
+        ms.update();
         return user;
     }
 
@@ -33,5 +35,10 @@ public class UserService {
 
     public void deleteUserById(long id) {
         repo.deleteById(id);
+        ms.update();
+    }
+
+    public int getUsersCount() {
+        return (int) repo.count();
     }
 }

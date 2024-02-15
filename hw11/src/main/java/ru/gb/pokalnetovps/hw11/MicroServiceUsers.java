@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppService1 {
+public class MicroServiceUsers {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppService1.class, args);
+        SpringApplication.run(MicroServiceUsers.class, args);
     }
 
 }

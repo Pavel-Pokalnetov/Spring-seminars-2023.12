@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.gb.pokalnetovps.hw11.model.User;
-import ru.gb.pokalnetovps.hw11.repository.IUserInterface;
+import ru.gb.pokalnetovps.hw11.repository.IUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ class UserServiceTest {
     @Autowired
     UserService us;
     @MockBean
-    private IUserInterface repo;
+    private IUserRepository repo;
 
     /**
      * Проверка метода добавления пользователя
