@@ -142,8 +142,8 @@ metricService.updateUsersCounter(int newCountValue);
 
 ### Скриншоты
 
-Пользовательская метрика
+Пользовательская метрика  
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw11/hw11/image/2024-02-16_01-02-27.png?raw=true)
-
+  
 При добавлении и удалении пользователей Prometheus фиксирует изменения  
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw11/hw11/image/2024-02-16_01-29-16.png?raw=true)
