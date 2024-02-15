@@ -140,5 +140,6 @@ metricService.updateUsersCounter(int newCountValue);
 ...
 ```
 
+### Скриншоты
 
 
