@@ -79,7 +79,6 @@ targets - указывает на сокет нашего приложения
 ```
 как видим, эндпоинты работают  
 Переходим по адресу 127.0.0.1:9000 и проверяем, что прометеус начал собирать данные.
-![]()
 
 Добавим свою метрику, которая будет отражать число записей(пользователей) в базе данных.
 
@@ -146,3 +145,5 @@ metricService.updateUsersCounter(int newCountValue);
 Пользовательская метрика
 ![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw11/hw11/image/2024-02-16_01-02-27.png?raw=true)
 
+При добавлении и удалении пользователей Prometheus фиксирует изменения  
+![](https://github.com/Pavel-Pokalnetov/Spring-seminars-2023.12/blob/hw11/hw11/image/2024-02-16_01-29-16.png?raw=true)
