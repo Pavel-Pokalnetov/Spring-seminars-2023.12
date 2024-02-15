@@ -11,4 +11,17 @@ spring:
   application:
     name: UserService
 server:
-  port: 8081
+  port: 8080
+
+# влючение активатора и экспозиции метрик для Prometheus
+management:
+
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
