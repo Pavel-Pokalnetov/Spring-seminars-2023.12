@@ -1,0 +1,5 @@
+scrape_configs:
+  - job_name: 'users_service' #имя сервиса
+    metrics_path: '/actuator/prometheus' #точка входа
+    static_configs:
+      - targets: ['10.10.1.210:8080'] #сокет микросервиса

@@ -14,14 +14,13 @@ server:
   port: 8080
 
 # влючение активатора и экспозиции метрик для Prometheus
-management:
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,prometheus
   endpoint:
-    metrics:
-      enabled: true
-    prometheus:
-      enabled: true
-  prometheus:
-    metrics:
-      export:
-        enabled: true
+    health:
+      show-details: always
+
