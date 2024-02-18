@@ -1,4 +1,4 @@
-package ru.gb.pokalnetovps.hw11;
+package ru.gb.pokalnetovps.hw12;
 
 
 import org.springframework.boot.SpringApplication;

@@ -1,9 +1,9 @@
-package ru.gb.pokalnetovps.hw11.service;
+package ru.gb.pokalnetovps.hw12.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.gb.pokalnetovps.hw11.model.User;
-import ru.gb.pokalnetovps.hw11.repository.IUserInterface;
+import ru.gb.pokalnetovps.hw12.model.User;
+import ru.gb.pokalnetovps.hw12.repository.IUserInterface;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
-package ru.gb.pokalnetovps.hw11.service;
+package ru.gb.pokalnetovps.hw12.service;
 
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.file.FileHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import ru.gb.pokalnetovps.hw11.model.User;
+import ru.gb.pokalnetovps.hw12.model.User;
 
 @MessagingGateway(defaultRequestChannel = "inChannel")
 public interface FileLoggerGateway {

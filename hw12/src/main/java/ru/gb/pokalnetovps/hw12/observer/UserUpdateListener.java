@@ -1,9 +1,9 @@
-package ru.gb.pokalnetovps.hw11.observer;
+package ru.gb.pokalnetovps.hw12.observer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-import ru.gb.pokalnetovps.hw11.service.FileLoggerGateway;
+import ru.gb.pokalnetovps.hw12.service.FileLoggerGateway;
 
 @Component
 public class UserUpdateListener implements ApplicationListener<UserCreateEvent> {

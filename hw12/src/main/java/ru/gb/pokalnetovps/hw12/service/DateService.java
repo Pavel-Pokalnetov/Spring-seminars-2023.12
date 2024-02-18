@@ -1,6 +1,5 @@
-package ru.gb.pokalnetovps.hw11.service;
+package ru.gb.pokalnetovps.hw12.service;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

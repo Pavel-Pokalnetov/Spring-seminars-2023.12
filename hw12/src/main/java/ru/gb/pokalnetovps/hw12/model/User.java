@@ -1,4 +1,4 @@
-package ru.gb.pokalnetovps.hw11.model;
+package ru.gb.pokalnetovps.hw12.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

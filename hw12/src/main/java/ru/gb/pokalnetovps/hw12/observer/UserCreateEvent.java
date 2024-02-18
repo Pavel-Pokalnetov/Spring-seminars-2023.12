@@ -1,8 +1,8 @@
-package ru.gb.pokalnetovps.hw11.observer;
+package ru.gb.pokalnetovps.hw12.observer;
 
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
-import ru.gb.pokalnetovps.hw11.model.User;
+import ru.gb.pokalnetovps.hw12.model.User;
 
 @Getter
 public class UserCreateEvent extends ApplicationEvent {

@@ -1,13 +1,13 @@
-package ru.gb.pokalnetovps.hw11.controllers;
+package ru.gb.pokalnetovps.hw12.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.gb.pokalnetovps.hw11.model.User;
-import ru.gb.pokalnetovps.hw11.observer.UserCreateEvent;
-import ru.gb.pokalnetovps.hw11.service.FileLoggerGateway;
-import ru.gb.pokalnetovps.hw11.service.UserService;
+import ru.gb.pokalnetovps.hw12.model.User;
+import ru.gb.pokalnetovps.hw12.observer.UserCreateEvent;
+import ru.gb.pokalnetovps.hw12.service.FileLoggerGateway;
+import ru.gb.pokalnetovps.hw12.service.UserService;
 
 import java.util.List;
 

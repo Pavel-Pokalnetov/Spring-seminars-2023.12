@@ -1,4 +1,4 @@
-package ru.gb.pokalnetovps.hw11.configurations;
+package ru.gb.pokalnetovps.hw12.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,8 +10,8 @@ import org.springframework.integration.core.GenericTransformer;
 import org.springframework.integration.file.FileWritingMessageHandler;
 import org.springframework.integration.file.support.FileExistsMode;
 import org.springframework.messaging.MessageChannel;
-import ru.gb.pokalnetovps.hw11.model.User;
-import ru.gb.pokalnetovps.hw11.service.DateService;
+import ru.gb.pokalnetovps.hw12.model.User;
+import ru.gb.pokalnetovps.hw12.service.DateService;
 
 import java.io.File;
 
